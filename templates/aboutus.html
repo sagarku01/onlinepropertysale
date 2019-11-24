@@ -1,0 +1,181 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+.dropbtn {
+  background-color: #0d0d0d;
+  color: greenyellow;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: cornflowerblue}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #92badd;
+}
+</style>
+</head>
+<body><br>
+   <center><img src="{% static 'images/mortgage.png' %}" width="150" height="150"> <span style="font-size: 35px; font-family: Verdana">ONLINE PROPERTY SALE</span></center>
+   <table align="center">
+       <tr>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/home/" style="color: greenyellow">HOME</a></button>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">PLOTS</button>
+                   <div class="dropdown-content">
+                       <a href="/plotreg/">NEW PLOT</a>
+                       <a href="/editplot/">EDIT PLOT</a>
+                       <a href="/viewplot/">VIEW PLOT</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">APARTMENT</button>
+                   <div class="dropdown-content">
+                       <a href="/appreg/">NEW APARTMENT</a>
+                       <a href="/editapp/">EDIT APARTMENT</a>
+                       <a href="/viewapp/">VIEW APARTMENT</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">SALES</button>
+                   <div class="dropdown-content">
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">EMPLOYEES</button>
+                   <div class="dropdown-content">
+                       <a href="/empreg/">ADD EMPLOYEE</a>
+                       <a href="/editemp/">EDIT EMPLOYEE</a>
+                       <a href="/viewemp/">VIEW EMPLOYEE</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">REPORTS</button>
+                   <div class="dropdown-content">
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/about/" style="color: greenyellow">ABOUT</a></button>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/logout/" style="color: greenyellow">LOGOUT</a></button>
+               </div>
+           </th>
+       </tr>
+   </table><br><br>
+       <table align="center">
+           <tr>
+               <td>
+                   <span style="font-family: 'Microsoft JhengHei UI Light'; font-size: 30px">About Us</span>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <span>_____________________________________________________________________________________________________________________________</span>
+               </td>
+           </tr>
+           <tr>
+               <td>
+                   <span style="font-size: small">
+           Launched in 2005, acres.com, India’s No. 1 property portal,
+           deals with every aspect of the consumers’ needs in the real estate industry.<br>
+           It is an online forum where buyers, sellers and brokers/agents can exchange information about real estate properties quickly, effectively and inexpensively.<br>
+           At acres.com, you can advertise a property, search for a property, browse through properties, build your own property microsite,<br>
+           and keep yourself updated with the latest news and trends making headlines in the realty sector.
+       </span><br><br>
+       <span style="color: red">Why acres.com?</span><br><br>
+       <span style="font-size: small">
+          At present, acres.com prides itself for having around nine lakh property listings spanning across 600+ cities in India. Of all,<br>
+       the website held over 5.7 lakh paid listings at the end of FY 2018-19. <br>
+       In addition to providing an online platform to real estate developers, brokers and property owners for listing <br>
+       their property for sale, purchase or rent, acres.com offers advertisement stints such as microsites, banners, <br>
+       home page links and project pages to the clients for better visibility and branding in the market.<br><br>
+           With the ever-evolving online search behaviour,
+       acres.com shares updated information pertinent to real estate activities,<br>
+       assisting prospective buyers to make informed buying decision.<br>
+           We make online property search easier,quicker and smarter!
+       </span><br><br>
+       <span style="color: red">Awards and Recognitions</span><br><br>
+       <li style="font-size: small">
+           PropTech Mobile App of the Year Award 2019 <br>
+           <ul>acres.com won the award for ‘Personalized User Journey’</ul>
+       </li>
+       <li style="font-size: small">
+           Best Mobile Appies Award 2015<br>
+           <ul>acres.com won the award for having the ‘Most Innovative Mobile App’ in the real estate category.</ul>
+       </li>
+       <li style="font-size: small">
+           CMO ASIA Awards 2012<br>
+           <ul>acres.com was awarded the ‘Most Admired Real Estate Website of the Year’ at the 3rd CMO Asia Awards for excellence in the real estate segment.</ul>
+       </li>
+       <li style="font-size: small">
+           BCI Awards 2012<br>
+           <ul>acres.com was recognised as the ‘Best Real Estate Portal’ in 2012.</ul>
+       </li>
+       <li style="font-size: small">
+           Accommodation Times Awards 2012<br>
+           <ul>acres.com was announced the ‘Best Online Realty Portal’ by the Accommodation Times in 2012.</ul>
+       </li>
+               </td>
+           </tr>
+           <tr>
+               <td style="float: right">
+                   <div style="font-family: Verdana;"><h5><u>CONTACT US</u></h5></div>
+                    <div>Toll Free : 1800-41-99099</div>
+                   <div>Monday - Saturday (9:00AM to 6:00PM IST)</div>
+                   <div>Email: feedback@acres.com</div>
+               </td>
+           </tr>
+           <tr>
+               <td><h1>------------------------------------------------------</h1></td>
+           </tr>
+       </table>
+</body>
+</html>

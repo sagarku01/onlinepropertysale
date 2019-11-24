@@ -1,0 +1,141 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+.dropbtn {
+  background-color: #0d0d0d;
+  color: greenyellow;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: cornflowerblue}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #92badd;
+}
+</style>
+</head>
+<body><br>
+   <center><img src="{% static 'images/mortgage.png' %}" width="150" height="150"> <span style="font-size: 35px; font-family: Verdana">ONLINE PROPERTY SALE</span></center>
+   <table align="center">
+       <tr>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/home/" style="color: greenyellow">HOME</a></button>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">PLOTS</button>
+                   <div class="dropdown-content">
+                       <a href="/plotreg/">NEW PLOT</a>
+                       <a href="/editplot/">EDIT PLOT</a>
+                       <a href="/viewplot/">VIEW PLOT</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">APARTMENT</button>
+                   <div class="dropdown-content">
+                       <a href="/appreg/">NEW APARTMENT</a>
+                       <a href="/editapp/">EDIT APARTMENT</a>
+                       <a href="/viewapp/">VIEW APARTMENT</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">SALES</button>
+                   <div class="dropdown-content">
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">EMPLOYEES</button>
+                   <div class="dropdown-content">
+                       <a href="/empreg/">ADD EMPLOYEE</a>
+                       <a href="/editemp/">EDIT EMPLOYEE</a>
+                       <a href="/viewemp/">VIEW EMPLOYEE</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">REPORTS</button>
+                   <div class="dropdown-content">
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/about/" style="color: greenyellow">ABOUT</a></button>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/logout/" style="color: greenyellow">LOGOUT</a></button>
+               </div>
+           </th>
+       </tr>
+   </table><br><br><br>
+   <center>
+       {% for x in show %}
+           <img src="{% static 'images/admin.png' %}" width="120" height="120">
+          <h1>Welcome {{ x.name }}</h1>
+      {% endfor %}
+       {% if add %}
+           <h4>{{ add }}</h4>
+       {% endif %}
+   </center><br>
+{#   <table align="center">#}
+{#       <tr>#}
+{#           <th>#}
+{#               <button type="button" class="btn btn-outline-primary">#}
+{#                   <a href="/changepass/">Password Change</a>#}
+{#               </button>#}
+{#               <button type="button" class="btn btn-outline-secondary">#}
+{#                   <a href="/adduser/">Add User</a>#}
+{#               </button>#}
+{#               <button type="button" class="btn btn-outline-success">#}
+{#                   <a href="/viewUser/">View User</a>#}
+{#               </button>#}
+{#               <button type="button" class="btn btn-outline-danger">#}
+{#                   <a href="/delete/">Delete User</a>#}
+{#               </button>#}
+{#           </th>#}
+{#       </tr>#}
+{#   </table>#}
+</body>
+</html>

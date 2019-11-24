@@ -1,0 +1,192 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+.dropbtn {
+  background-color: #0d0d0d;
+  color: greenyellow;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: cornflowerblue}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #92badd;
+}
+</style>
+</head>
+<body><br>
+   <center><img src="{% static 'images/mortgage.png' %}" width="150" height="150"> <span style="font-size: 35px; font-family: Verdana">ONLINE PROPERTY SALE</span></center>
+   <table align="center">
+       <tr>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/home/" style="color: greenyellow">HOME</a></button>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">PLOTS</button>
+                   <div class="dropdown-content">
+                       <a href="/plotreg/">NEW PLOT</a>
+                       <a href="/editplot/">EDIT PLOT</a>
+                       <a href="/viewplot/">VIEW PLOT</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">APARTMENT</button>
+                   <div class="dropdown-content">
+                       <a href="/appreg/">NEW APARTMENT</a>
+                       <a href="/editapp/">EDIT APARTMENT</a>
+                       <a href="/viewapp/">VIEW APARTMENT</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">SALES</button>
+                   <div class="dropdown-content">
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">EMPLOYEES</button>
+                   <div class="dropdown-content">
+                       <a href="/empreg/">ADD EMPLOYEE</a>
+                       <a href="/editemp/">EDIT EMPLOYEE</a>
+                       <a href="/viewemp/">VIEW EMPLOYEE</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">REPORTS</button>
+                   <div class="dropdown-content">
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/about/" style="color: greenyellow">ABOUT</a></button>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/logout/" style="color: greenyellow">LOGOUT</a></button>
+               </div>
+           </th>
+       </tr>
+   </table><br><br><br>
+    <form action="/updateplot/" method="post" enctype="multipart/form-data">
+       {% csrf_token %}
+       <table align="center">
+       <tr>
+           <th style="text-align: center"><h3>Update Plot Registration</h3></th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Registration No : <input type="hidden" value="{{ data.regno }}" name="regno">{{ data.regno }}
+           </th>
+       </tr>
+        <tr>
+           <th style="text-align: center">
+               Plot No : <input type="number" placeholder="Plot No" name="plotno" required value="{{ data.plotno }}">
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Road No : <input type="number" placeholder="Road No" name="roadno" required value="{{ data.roadno }}">
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Survey No : <input type="number" placeholder="Survey No" name="surveyno" required value="{{ data.surveyno }}">
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               CostPerSQYard : <input type="number" placeholder="CostPerSQYard" name="costpersqyard" required value="{{ data.costpersqyard }}">
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Other Expenses : <input type="number" placeholder="Other Expenses" name="otherexp" required value="{{ data.otherexp }}">
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Boundary : <input type="number" placeholder="Boundary" name="boundary" required value="{{ data.boundary }}">
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Facing : <select name="facing" required id="{{ data.facing }}">
+               <option>------------</option>
+               <option>EAST</option>
+               <option>WEST</option>
+               <option>NORTH</option>
+               <option>SOUTH</option>
+           </select>
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Status : <select name="status" required id="{{ data.status }}">
+               <option>------------</option>
+               <option>VACANT</option>
+               <option>RESERVE</option>
+               <option>SOLD</option>
+           </select>
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               TotalCost : <input type="number" placeholder="TotalCost" name="totalcost" required value="{{ data.totalcost }}">
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Image : <input type="file" name="photo" required value="{{ data.photo }}">
+           </th>
+       </tr>
+   </table><br>
+       <center>
+           <button type="submit">Update</button>
+           <h5>___________________________________________</h5>
+       </center>
+   </form>
+</body>
+</html>

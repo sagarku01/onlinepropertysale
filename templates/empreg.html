@@ -1,0 +1,177 @@
+{% load staticfiles %}
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+.dropbtn {
+  background-color: #0d0d0d;
+  color: greenyellow;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: cornflowerblue}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #92badd;
+}
+</style>
+</head>
+<body><br>
+   <center><img src="{% static 'images/mortgage.png' %}" width="150" height="150"> <span style="font-size: 35px; font-family: Verdana">ONLINE PROPERTY SALE</span></center>
+   <table align="center">
+       <tr>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/home/" style="color: greenyellow">HOME</a></button>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">PLOTS</button>
+                   <div class="dropdown-content">
+                       <a href="/plotreg/">NEW PLOT</a>
+                       <a href="/editplot/">EDIT PLOT</a>
+                       <a href="/viewplot/">VIEW PLOT</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">APARTMENT</button>
+                   <div class="dropdown-content">
+                       <a href="/appreg/">NEW APARTMENT</a>
+                       <a href="/editapp/">EDIT APARTMENT</a>
+                       <a href="/viewapp/">VIEW APARTMENT</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">SALES</button>
+                   <div class="dropdown-content">
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">EMPLOYEES</button>
+                   <div class="dropdown-content">
+                       <a href="/empreg/">ADD EMPLOYEE</a>
+                       <a href="/editemp/">EDIT EMPLOYEE</a>
+                       <a href="/viewemp/">VIEW EMPLOYEE</a>
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn">REPORTS</button>
+                   <div class="dropdown-content">
+                   </div>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/about/" style="color: greenyellow">ABOUT</a></button>
+               </div>
+           </th>
+           <th>
+               <div class="dropdown">
+                   <button class="dropbtn"><a href="/logout/" style="color: greenyellow">LOGOUT</a></button>
+               </div>
+           </th>
+       </tr>
+   </table><br>
+   <form action="/saveemployee/" method="post" enctype="multipart/form-data">
+       {% csrf_token %}
+       <table align="center">
+       <tr>
+           <th style="text-align: center"><h3>New Employee Registration</h3></th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Id_No : <input type="number" value="{{ regno }}" name="idno" readonly>
+           </th>
+       </tr>
+        <tr>
+           <th style="text-align: center">
+               Name : <input type="text" placeholder="Name" name="name" required>
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Email_Id : <input type="email" placeholder="Email_Id" name="mailid" required>
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Location : <input type="text" placeholder="Location" name="location" required>
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Date of Joining : <input type="date" placeholder="Date of Joining" name="doj" required>
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Role : <select name="role" required>
+               <option>------------</option>
+               <option>DEVELOPER</option>
+               <option>TESTER</option>
+               <option>DESIGNER</option>
+               <option>MANAGER</option>
+           </select>
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Remarks : <select name="remarks" required>
+               <option>--------</option>
+               <option>GOOD</option>
+               <option>AVERAGE</option>
+               <option>BAD</option>
+           </select>
+           </th>
+       </tr>
+       <tr>
+           <th style="text-align: center">
+               Image : <input type="file" name="photo" required>
+           </th>
+       </tr>
+   </table><br>
+       <center>
+           <button type="submit">Register</button>
+           <h5>___________________________________________</h5>
+       </center>
+   </form>
+</body>
+</html>
